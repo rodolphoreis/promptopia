@@ -7,9 +7,18 @@ import { signIn, signOut, useSession } from "next-auth/react";
 
 const Nav = () => {
   return (
-    <div>
-      <h1>Nav</h1>
-    </div>
+    <nav className="flex-between w-full mb-16 pt-3">
+      <Link href="/" className="flex gap-2 flex-center">
+        <Image
+          src="/assets/images/logo.svg"
+          alt="Promptopia Logo"
+          className="object-contain"
+          width={32}
+          height={32}
+        />
+        <p className="logo_text">Promptopia</p>
+      </Link>
+    </nav>
   );
 };
 
