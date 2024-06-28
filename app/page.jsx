@@ -13,6 +13,7 @@ const Home = () => {
         aberto para o mundo moderno descobrir, criar e compartilhar prompts
         criativos.
       </p>
+      <Feed />
     </section>
   );
 };
