@@ -3,10 +3,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Nav = () => {
   const isUserLoggedIn = true;
+
+  const [providers, setProviders] = useState(null);
+
+  useEffect(() => {
+    getProviders().then((providers) => setProviders(providers));
+  }, []);
 
   return (
     <nav className="flex-between w-full mb-16 pt-3">
@@ -32,6 +38,15 @@ const Nav = () => {
             <button type="button" onClick={signOut} className="outline_btn">
               Sair
             </button>
+            <Link href="/profile">
+              <Image
+                src="/assets/images/logo.svg"
+                className="rounded-full"
+                alt="profile"
+                width={37}
+                height={37}
+              />
+            </Link>
           </div>
         ) : (
           <></>
