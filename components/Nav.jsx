@@ -20,6 +20,23 @@ const Nav = () => {
         />
         <p className="logo_text">Promptopia</p>
       </Link>
+
+      {/* Desktop Navigation */}
+
+      <div className="sm:flex hidden">
+        {isUserLoggedIn ? (
+          <div className="flex gap-3 md:gap-5">
+            <Link href="/create-prompt" className="black_btn">
+              Criar Publicação
+            </Link>
+            <button type="button" onClick={signOut} className="outline_btn">
+              Sair
+            </button>
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
     </nav>
   );
 };
