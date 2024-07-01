@@ -82,6 +82,34 @@ const Nav = () => {
               height={37}
               onClick={() => setToggleDropdown((prev) => !prev)}
             />
+            {toggleDropdown && (
+              <div className="dropdown">
+                <Link
+                  href="/profile"
+                  className="dropdown_Link"
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  Perfil
+                </Link>
+                <Link
+                  href="/profile"
+                  className="dropdown_Link"
+                  onClick={() => setToggleDropdown(false)}
+                >
+                  Criar Publicação
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setToggleDropdown(false);
+                    signOut();
+                  }}
+                  className="mt-5 w-full black_btn"
+                >
+                  Sair
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <>
