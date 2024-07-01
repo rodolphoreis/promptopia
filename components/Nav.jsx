@@ -9,6 +9,7 @@ const Nav = () => {
   const isUserLoggedIn = true;
 
   const [providers, setProviders] = useState(null);
+  const [toggleDropdown, setToggleDropdown] = useState(false);
 
   useEffect(() => {
     const setProviders = async () => {
@@ -69,6 +70,33 @@ const Nav = () => {
         )}
       </div>
 
+      {/* Mobile Navigation */}
+      <div className="sm:hidden flex relative">
+        {isUserLoggedIn ? (
+          <div className="flex">
+            <Image
+              src="/assets/images/logo.svg"
+              className="rounded-full"
+              alt="profile"
+              width={37}
+              height={37}
+              onClick={() => setToggleDropdown((prev) => !prev)}
+            />
+          </div>
+        ) : (
+          <>
+            {providers &&
+              Object.values(providers).map((provider) => (
+                <button
+                  type="button"
+                  key={provider.id}
+                  onClick={() => signIn(provider.id)}
+                  className="black_btn"
+                >
+                  Entrar
+                </button>
+              ))}
+          </>
         )}
       </div>
     </nav>
