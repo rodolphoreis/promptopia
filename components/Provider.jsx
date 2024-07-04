@@ -1,4 +1,4 @@
-const Provider = () => {
+"use client";
   return (
     <div>
       <h1>Provider</h1>
